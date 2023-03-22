@@ -1,0 +1,102 @@
+\documentclass[11pt]{exam}
+
+\usepackage{amsmath}
+
+\begin{document}
+
+\texttt{Assignment 5 --- QMB 3311 ---  Spring 2023  --- Due: March 26, 2023}
+
+\subsection*{Instructions:}
+
+Complete this assignment within the space on your \textit{private} GitHub repo in a folder called \texttt{Assignment\_05}. In this folder, save your answers to a file called \texttt{my\_CES\_A5.py} and \texttt{my\_logit\_A5.py} in the course repository. When you are finished, submit your files to your repository and upload the link to Webcourses.
+
+For all of the exercises, use your examples to test the functions you defined. Since the examples are all contained within the docstrings of your functions, you can use the
+\texttt{doctest.testmod()} function within the doctest module to test your functions automatically.
+
+Don't worry about false alarms: if there are some ``failures'' that are only different in the smaller decimal places, then your function is good enough. It is much more important that your function runs without throwing an error.
+
+    \begin{questions}
+
+\question Create the following functions from your previous assignments into a two different modules:
+
+\begin{itemize}
+    \item For Module \texttt{my\_CES\_A5.py}, copy these previous functions:
+
+    \begin{itemize}
+      \item \texttt{CES\_utility()} from Assignment 2.
+      \item \texttt{CES\_utility\_valid()} from Assignment 3.
+      \item \texttt{CES\_utility\_in\_budget()} from Assignment 3.
+    \end{itemize} 
+
+    \item For Module \texttt{my\_logit\_A5.py}, copy these previous functions:
+
+    \begin{itemize}
+      \item \texttt{logit()} from Assignment 3.
+      \item \texttt{logit\_like()} from Assignment 3.
+      \item \texttt{logit\_like\_sum()} from Assignment 4.
+    \end{itemize}  
+\end{itemize}
+
+\question Follow the function design recipe to define functions for all of the following parts. For each
+function, create three examples to test your functions.
+
+	\begin{parts}
+\part Write a \textit{helper} function \texttt{logit\_d\_i(x\_i,k)} that helps you calculate the term $d_{i}$ in the gradient vector. The formula for \texttt{logit\_di()} is 
+
+$$d_{i} = \begin{cases}
+1, & \text{if } k = 0,\\
+x_{i}, & \text{if } k = 1,\\
+\text{undefined} & \text{ otherwise.}
+\end{cases}$$
+
+where $x_{i}$ is a number. It will be a single observation of a list of covariates \texttt{x} when \texttt{logit\_d\_i()} is used in another function. Add this function your module \texttt{my\_logit\_A5.py}.
+
+\part Write another helper function \texttt{logit\_dLi\_dbk(y\_i,x\_i, beta\_0, beta\_1)} that helps you calculate an individual term in the sum of the gradient vector. The formula for \texttt{logit\_dLi\_dbk()} is
+is
+
+\begin{equation*}
+\frac{\partial}{\partial \beta_{k}} L_{i}(y_{i},x_{i};\beta_{0},\beta_{1}) = 
+\begin{cases}
+    d_{i}(1-\ell(x_{i};\beta_{0},\beta_{1})), & \text{if } y_{i} = 1,\\ 
+    d_{i}(-\ell(x_{i};\beta_{0},\beta_{1})), & \text{if } y_{i} = 0,\\
+    \text{undefined} & \text{otherwise}
+\end{cases}
+\end{equation*}
+
+where $y_{i}$ and $x_{i}$ is a single pair of observations from a list of observations in \texttt{y} and \texttt{x} that can be used in another function. Add this function your module \texttt{my\_logit\_A5.py}.
+
+For a two-by-two matrix $A$, the inverse can be obtained with the expression
+
+\part Write a function \texttt{CESdemand\_calc(r, p\_x, p\_x, w)} that returns a list of two values \texttt{[x\_star,y\_star]} that achieve the maximum value of \texttt{CES\_utility()}, subject to the budget constraint that the consumer's basket of goods should cost no more than their wealth $w$: $p_{x}x+p_{y}y \leq w$.
+That is, given $p_{x}$ and $p_{y}$, these values maximize the function \texttt{CESutility\_in\_budget}, without
+returning a value of \texttt{None}. A senior analyst used calculus to find the optimal values of $x^{*}$ and
+$y^{*}$:
+
+$$x^{*} = \frac{p_{x}^{\frac{1}{r-1}}}{p_{x}^{\frac{r}{r-1}} + p_{y}^{\frac{r}{r-1}}} \times w \text{ and } y^{*} = \frac{p_{y}^{\frac{1}{r-1}}}{p_{x}^{\frac{r}{r-1}} + p_{y}^{\frac{r}{r-1}}} \times w$$
+
+
+Add this function to your module \texttt{my\_CES\_A5.py}.
+
+\part Now write a function that finds values of \texttt{x} and \texttt{y} that maximize \texttt{CESutility\_in\_budget(x, y, r, p\_x, p\_y, w)} for given \texttt{r, p\_x, p\_y,} and \texttt{w}. Write a function definition \texttt{max\_CES\_xy(x\_min, x\_max, y\_min, y\_max, step, r, p\_x, p\_y, w)} as follows:
+
+\begin{enumerate}
+    \item Find the values of x and y by evaluating \texttt{CESutility\_in\_budget(x, y, r, p\_x, p\_y, w)} over every combination of of $(x, y)$ in two lists.
+    \item Create lists \texttt{x\_list} and \texttt{y\_list} from ranges $x = x^{min}, \dotsc, x^{max}$ and $y = y^{min}, \dotsc,  y^{max}$, where the neighboring values of $x$ or $y$ are separated by distance \texttt{step}. The \texttt{np.arange()} function is useful for this.
+    \item Initialize the maximized value with \texttt{max\_CES = float(``-inf'')}.
+    \item Loop over the index numbers \texttt{i} and \texttt{j} corresponding to lists \texttt{x\_list} and \texttt{y\_list}.
+    \begin{enumerate}
+        \item For each pair of \texttt{i} and \texttt{j}, extract the value \texttt{x\_list[i]} and \texttt{y\_list[j]}
+        \item For each pair of \texttt{i} and \texttt{j}, evaluate \texttt{CESutility\_in\_budget(x, y, r, p\_x,p\_y, w)}
+        \item If the value is higher than \texttt{max\_CES}, record the new \texttt{i\_max = i} and \texttt{j\_max = j} and update the newest value of the \texttt{max\_CES}. If \texttt{CESutility\_in\_budget} returns \texttt{None}, make no changes and move on to the next values.  
+    \end{enumerate}
+
+    \item After the loops, return \texttt{[ x\_list[i\_max], y\_list[j\_max] ]}.
+
+    \item Verify that the result matches the values from the previous question (up to accuracy \texttt{step}). You can use the same test cases as you did in the previous question. Add this function to your module \texttt{my\_CES\_A5.py}
+\end{enumerate}
+
+        \end{parts}
+
+    \end{questions}
+
+\end{document}
