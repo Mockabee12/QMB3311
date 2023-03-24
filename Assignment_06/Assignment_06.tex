@@ -1,0 +1,52 @@
+\documentclass[11pt]{exam}
+
+\usepackage{amsmath}
+
+\begin{document}
+
+\texttt{Assignment 6 --- QMB 3311 ---  Spring 2023  --- Due: April 2, 2023}
+
+\subsection*{Instructions:}
+
+Complete this assignment within the space on your \textit{private} GitHub repo in a folder called \texttt{Assignment\_06}. In this folder, save your answers to a file called \texttt{my\_A6\_module.py}. When you are finished, submit your files to your repository and upload the link to Webcourses.
+
+For all of the exercises, use your examples to test the functions you defined. Since the examples are all contained within the docstrings of your functions, you can use the
+\texttt{doctest.testmod()} function within the doctest module to test your functions automatically.
+
+Don't worry about false alarms: if there are some ``failures'' that are only different in the smaller decimal places, then your function is good enough. It is much more important that your function runs without throwing an error.
+
+    \begin{questions}
+
+\question A \textit{Taylor Series} is the sum of a sequence of terms that approximates the value of a function in the neighborhood of a particular point. For the natural logarithm function, $\ln(z)$, the Taylor series expansion around the point $z_{0}$ is
+
+$$\ln(z) = \ln(1) + \sum_{k=1}^{\infty}(-1)^{k-1}\frac{1}{k}(z-1)^{k}$$
+
+and since $\ln(1) = 0$, the approximation can be calculated without use of the \texttt{math.log} function. Write a function \texttt{ln\_taylor(z, n)} that calculates the first $n$ terms of this approximation. In crafting your examples, you will find that this approximation of the \texttt{math.log} function is more accurate for values of $z$ close to 1 or when a large number of terms $n$ is used.
+
+\question Another way to solve for the value of the $\ln(z)$ function is to transform it into a root-finding problem: solve for the value of $x$ such that:
+
+$$e^{x} = z \text{ or } e^{x} - z = 0$$
+
+which is true when $x = \ln(z)$, for a given $z$. Write a function \texttt{exp\_x\_diff(x, z)} that returns the value of $e^{x} - z$.
+
+\question Now solve the function $f(x) = $ \texttt{exp\_x\_diff(x, z) == 0} for the root of $x^{*}$. Write a function \texttt{ln\_z\_bisect(z, a\_0, b\_0, num\_iter)} that calculates the root using the bisection method. Essentially, this will produce an algorithm for calculating the natural logarithm of \texttt{z}. Follow the algorithm used in the lecture that recursively splits the interval in half and, in each iteration, assigns the midpoint \texttt{m\_i} to the endpoint for which \texttt{exp\_x\_diff()} has the same sign as \texttt{exp\_x\_diff(m\_i, z)}. It should start with the interval $(a_{0}, b_{0})$ and perform \texttt{num\_iter} iterations. To guarantee a solution, your function should first check that the signs of $f(x)$ differ at the end points, i.e. $f(a_{0}) \times f(b_{0}) < 0$
+
+\question Next, solve for the roots using Newton's method. Before doing this, you will nedd a function that returns the derviative. Write a function \texttt{exp\_x\_diff\_prime(x, z)} ($= f'(x)$) that returns the derivative of \texttt{exp\_x\_diff(x, z)} with respect to \texttt{x}. Note that \texttt{z} is a constant in this function.
+
+\question Now, use Newton's method to find the natural log of $z$. Use the recurrence relation 
+
+$$x_{i+1} = x_{i} - \frac{f(x_{i})}{f'(x_{i})}$$
+
+repeatedly until it reaches a value of $x_{n}$ such that $|f(x_{n})| < \varepsilon$ where $\varepsilon$ is a small number reprented by \texttt{tol}. Write a function \texttt{ln\_z\_newton(z, x0, tol num\_iter)} that solves for the natural logarithm of $z$ by using the inital value \texttt{x0}, up to a level of tolerance \texttt{tol}, and a maximum number of iterations \texttt{num\_iter}. It should print a warning message if it reaches the maximum number of iterations before the \texttt{exp\_x\_diff(x\_i, z)} function value is less than \texttt{tol}.
+
+\question In the next exercise, you will use the fixed-point method to find a root of this function. A \textit{fixed point} of a function $g(x)$ is a value of $x^{*}$ such that $g(x^{*}) = x^{*}$. Consider the function
+
+$$g(x) = \frac{1}{2}(z-e^{x}+2x)$$
+
+Note that $x^{*} = \ln(z)$ is a fixed point of $g(x)$; that is, $g(\ln(z)) = \ln(z)$. Write a function \texttt{exp\_x\_fp\_fn(x, z)} that returns the value $g(x)$ for a given value of $z$.
+
+\question Finally, use the fixed-point method to find the natural logarithm of $z$. THat is, use the recurrence relation $x_{i+1} = g(x_{i})$ repeatedly until it reaches a value $x_{n}$ such that $|g(x_{n}) - x_{n}| < \varepsilon$, where $\varepsilon$ is a small number represented by \texttt{tol}. Write this algorithm within a function \texttt{ln\_z fixed\_pt(z, x0, tol, num\_iter)}.
+
+    \end{questions}
+
+\end{document}
