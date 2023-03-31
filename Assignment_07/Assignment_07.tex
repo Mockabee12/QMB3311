@@ -1,0 +1,116 @@
+\documentclass[11pt]{exam}
+
+\usepackage{amsmath}
+
+\begin{document}
+
+\texttt{Assignment 7 --- QMB 3311 ---  Spring 2023  --- Due: April 9, 2023}
+
+\subsection*{Instructions:}
+
+Complete this assignment within the space on your \textit{private} GitHub repo in a folder called \texttt{Assignment\_07}. In this folder, save your answers to a file called \texttt{my\_logit\_A7.py} in the course repository. In the same folder, submit the script \texttt{logit\_calculation\_A7.py}When you are finished, submit your files to your repository and upload the link to Webcourses.
+
+For all of the exercises, use your examples to test the functions you defined. Since the examples are all contained within the docstrings of your functions, you can use the
+\texttt{doctest.testmod()} function within the doctest module to test your functions automatically.
+
+Don't worry about false alarms: if there are some ``failures'' that are only different in the smaller decimal places, then your function is good enough. It is much more important that your function runs without throwing an error.
+
+    \begin{questions}
+
+\question Create the following functions from your previous assignments into a module called \texttt{my\_logit\_A7.py}.
+
+\begin{itemize}
+    \item \texttt{logit()} from Assignment 3.
+    \item \texttt{logit\_like()} from Assignment 3.
+    \item \texttt{logit\_like\_sum()} from Assignment 4.
+    \item \texttt{logit\_di()} from Assignment 5.
+    \item \texttt{logit\_dLi\_dbk()} from Assignment 5.
+\end{itemize}
+
+\question Follow the function design recipe to define functions for all of the following parts. For each
+function, create three examples to test your functions.
+
+	\begin{parts}
+    \part Write a function \texttt{logit\_like\_sum\_opt(beta, y, x)} that is a wrapper function for the function called \texttt{logit\_like\_sum()} that can be used for optimization. The parameter for optimization \texttt{beta} should be a single parameter containing both \texttt{beta\_0} and \texttt{beta\_1} and it should be the first parameter. Alsom the function should return the negative of \texttt{logit\_like\_sum()} since the \texttt{scipy} algorithms minimize the objective function and the estimates of \texttt{beta} are those that maximize \texttt{logit\_like\_sum()}.
+
+    \part Write a function \texttt{logit\_like\_grad(beta, y, x)} to calculate the gradient vector of the like-
+lihood function \texttt{logit\_like\_sum\_opt()}. It should take the same arguments as the function \texttt{logit\_like\_sum\_opt()}, in the same order. The \textit{gradient vector} of a multivariate function is a vector with each element equal to the derivative of the function with respect to each parameter. In the case of $L(y, x;\beta_{0},\beta_{1})$, element $k$ is
+
+$$\frac{\partial  L(y, x;\beta_{0},\beta_{1})}{\partial \beta_{k}} = \sum_{i=1}^{n} \frac{\partial}{\partial \beta_{k}} L_{i}(y_{i},x_{i};\beta_{0},\beta_{1}) $$
+
+for $k$ = 0 or $k$ = 1, corresponding to $\beta_{0}$ or $\beta_{0}$, where $L_{i}(y_{i},x_{i};\beta_{0},\beta_{1})$ in Exercise 2 above.
+
+Using calculus, one can determine that
+
+\begin{equation*}
+\frac{\partial}{\partial \beta_{k}} L_{i}(y_{i},x_{i};\beta_{0},\beta_{1}) = 
+\begin{cases}
+    d_{i}(1-\ell(x_{i};\beta_{0},\beta_{1})), & \text{if } y_{i} = 1,\\ 
+    d_{i}(-\ell(x_{i};\beta_{0},\beta_{1})), & \text{if } y_{i} = 0,\\
+    \text{undefined} & \text{otherwise}
+\end{cases}
+\end{equation*}
+
+where 
+
+$$d_{i} = \begin{cases}
+1, & \text{if } k = 0,\\
+x_{i}, & \text{if } k = 1
+\end{cases}$$
+
+
+We coded these functions in Assignment 5. Using these expressions, you can define this
+function \texttt{logit\_like\_grad()} with the sum of the calculations of \texttt{logit\_dLi\_dbk(y\_i, x\_i,
+k, beta\_0, beta\_1)} from Assignment 5. Your function will output a vector of two elements, corresponding to the parameters $\beta_{0}$ (for \texttt{k} = 0) and $\beta_{1}$ (for \texttt{k} = 1). Like the objective function
+above, this new function will take the negative of the sum of the terms in \texttt{logit\_dLi\_dbk(y\_i,
+x\_i, k, beta\_0, beta\_1)}, where \texttt{i} loops over the elements in the lists \texttt{y} and \texttt{x}.
+
+        \end{parts}
+
+\question The sample script \texttt{logit calculation A7.py} uses the statsmodels module to estimate a model for the probability that borrowers will default on their loans. You will calculate the parameter estimates by applying optimization methods in scipy to estimate these parameters. The dataset \texttt{credit data.csv} includes the following variables.
+
+\begin{itemize}
+\item default: 1 if borrower defaulted on a loan
+\item bmaxrate: the maximum rate of interest on any part of the loan
+\item amount: the amount funded on the loan
+\item close: 1 if borrower takes the option of closing the listing until it is fully funded
+\item AA: 1 if borrowers FICO score greater than 760
+\item A: 1 if borrowers FICO score between 720 and 759
+\item B: 1 if borrowers FICO score between 680 and 719
+\item C: 1 if borrowers FICO score between 640 and 679
+\item D: 1 if borrowers FICO score between 600 and 639
+\end{itemize}
+
+In the script \texttt{logit\_calculation A7.py}, these data are loaded in and used to estimate a model
+using statsmodels, with only the variable bmaxrate. We use the functions defined above in exercise 1 and 2 above. The function \texttt{logit\_like\_sum\_opt(beta, y, x)} is the (negative of the) log-likelihood function that is maximized to get the parameter estimates in statsmodels. The function \texttt{logit\_like\_grad(beta, y, x)} is the (negative of the) first derivative of the log-likelihood function, which is zero at the maximal parameter values. No examples are necessary, since you have already tested the functions. All you need to do is obtain the coefficients by optimization, filling in the code in \texttt{logit\_calculation\_A7.py} wherever it is marked \texttt{Code goes here}.
+
+\begin{parts}
+
+\part Run the script \texttt{logit\_calculation\_A7.py} up to line 150 to see the results for the estimation with \texttt{statsmodels}. The goal is to match the parameter estimates in \texttt{logit\_model\_fit\_sm.params} and achieve the maximum value of the log-likelihood function shown in the output from \texttt{logit\_model\_fit\_sm.summary()}.
+
+\part Calculate the parameter estimates by minimizing \texttt{logit\_like\_sum\_opt(beta, y, X)} using
+the function \texttt{minimize()} from the scipy module and passing the tuple of arguments \texttt{(y, X)}. Implement it several times using the following algorithms.
+
+\begin{enumerate}
+ \item Use the Nelder-Mead Simplex algorithm algorithm by passing the argument \texttt{method = 'nelder-mead'}.
+
+\item Use the Davidon-Fletcher-Powell (DFP) algorithm by passing the argument \texttt{method ='powell'}.
+\item Use the Broyden-Fletcher-Goldfarb-Shanno algorithm (BFGS) algorithm by passing the argument \texttt{method = 'BFGS'}.
+
+\item Verify that your parameter estimates and the optimal values of the likelihood function are achieved with the methods in part (b), to match the results from statsmodels. You may need to pass additional arguments to the options argument, as in:
+
+
+\texttt{options = f'xtol': 1e-8, 'maxiter': 1000, 'disp': True}
+~\\
+
+and to adjust the values as necessary. Compare the accuracy and number of iterations.
+
+\end{enumerate}
+
+
+\end{parts}
+
+
+    \end{questions}
+
+\end{document}
