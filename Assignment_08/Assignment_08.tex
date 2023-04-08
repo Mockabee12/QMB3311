@@ -1,0 +1,84 @@
+\documentclass[11pt]{exam}
+
+\usepackage{amsmath}
+
+\begin{document}
+
+\texttt{Assignment 8 --- QMB 3311 ---  Spring 2023  --- Due: April 16, 2023}
+
+\subsection*{Instructions:}
+
+Complete this assignment on your private GitHub repo in a folder called \texttt{Assignment\_08}. In this folder, save your answers to Questions 1 to 3 in a file called \texttt{my\_A8\_queries.py}, by completing the script in the file \texttt{my\_A8\_queries.py} in the course repository.. When you are finished, submit your files to your repository and upload the link to Webcourses.
+
+    \begin{questions}
+
+\question The folder \texttt{Assignment\_08} contains three \texttt{.csv} files: \texttt{applications.csv}, \texttt{credit\_bureau.csv}, and \texttt{demographic.csv}. The first dataset \texttt{applications.csv} contains the following variables.
+
+\begin{enumerate}
+\item \texttt{app\_id} = a unique key for each customer who applied for credit
+\item \texttt{ssn} = the social security number
+\item \texttt{zip\_code} = the the zip code in which the applicant resides
+\item \texttt{income} = the applicant's reported income
+\item \texttt{homeownership} = a categorical variable that indicates whether an applicantowns or rents a home
+\item \texttt{purchases} = the monthly value of purchases on the account
+\item \texttt{credit\_limit} = the maximum amount that an applicant is approved to spend
+\end{enumerate}
+
+You will use this dataset to estimate a regression model to predict the monthly amount of \texttt{purchases} for each customer.
+
+\begin{parts}
+\part Create a new database called \texttt{credit.db}.
+\part Read in the \texttt{applications.csv} dataset and store the contents in a data frame called \texttt{applications} in your workspace.
+\part Use the sample code in \texttt{my\_A8\_queries.py} to estimate a regression model to predict purchases
+as a function of the other variables in the dataset (ignoring the variables \texttt{app\_id}, \texttt{ssn} and
+\texttt{zip\_code}, which are keys for databases). Notice the value of the adjusted R-squared statistic.
+\part \texttt{CREATE} a \texttt{TABLE} called \texttt{Applications} with a schema that is appropriate for the variables.
+\part Populate the table \texttt{Applications} with the observations in the data frame \texttt{applications}.
+\end{parts}
+
+\question Now use two files \texttt{applications.csv} and \texttt{credit\_bureau.csv} in the folder \texttt{Assignment\_08}. The dataset \texttt{credit\_bureau.csv} contains the following variables.
+
+\begin{enumerate}
+\item \texttt{ssn} = the consumers unique social security number
+\item \texttt{zip\_code} = the zip code in which the consumer resides
+\item \texttt{fico} = the consumer's credit score
+\item \texttt{num\_late} = the number of number of times a consumer has made a payment after the due date
+\item \texttt{past\_def} = the number of number of times a consumer has defaulted on a line of credit
+\item \texttt{num\_bankruptcy} = the number of number of times a consumer has filed for bankruptcy
+\end{enumerate}
+
+You will use the variables from both datasets to estimate a better regression model to predict monthly purchase volume.
+
+	\begin{parts}
+\part Read the new dataset and store it in a data frame called \texttt{credit\_bureau} in your workspace.
+\part \texttt{CREATE} a \texttt{TABLE} called \texttt{CreditBureau} with a schema that is appropriate for the variables.
+\part Populate the table \texttt{CreditBureau} with the observations in the data frame \texttt{credit\_bureau}.
+\part Join the two tables by \texttt{ssn} and \texttt{zip\_code} and output the result as a \texttt{pandas} data frame called \texttt{app\_bureau}.
+\part Use the sample code in \texttt{my\_A8\_queries.py} to estimate a regression model to predict purchases as a function of the other variables in the dataset. (Again, ignore the variables \texttt{app\_id}, \texttt{ssn} and \texttt{zip\_code}, which are keys for databases.)
+        \end{parts}
+
+\question Now use all three files \texttt{applications.csv}, \texttt{credit bureau.csv}, and \texttt{demographic.csv} in the folder \texttt{Assignment\_08}. The dataset \texttt{demographic.csv} contains the following variables.
+
+\begin{enumerate}
+
+\item \texttt{zip\_code} = the zip code to indicate each geographic region
+\item \texttt{avg\_income} = the average income in each zip code
+\item \texttt{density} = the population density in each zip code
+\end{enumerate}
+
+You will use the variables from all three datasets to estimate an even better regression model to predict monthly purchase volume.
+
+\begin{parts}
+
+\part Read the new dataset and store it in a data frame called \texttt{demographic} in your workspace.
+\part \texttt{CREATE} a \texttt{TABLE} called \texttt{Demographic} with a schema that is appropriate for the variables.
+\part Populate the table \texttt{Demographic} with the observations in the data frame demographic.
+\part Join the new table \texttt{Demographic} to the information from the other two tables by \texttt{zip\_code}.
+You can use your query from Question 2 as a nested query. Output the result as a \texttt{pandas} data frame called \texttt{purchase\_full}.
+\part Use the sample code in \texttt{my\_A8\_queries.py} to estimate a regression model to predict purchases as a function of the other variables in the dataset. As above, ignore the variables \texttt{app\_id}, \texttt{ssn} and \texttt{zip\_code}, which are keys for databases.
+
+\end{parts}
+
+    \end{questions}
+
+\end{document}
