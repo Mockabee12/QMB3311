@@ -14,9 +14,9 @@ st.latex(r''' e^{i\pi} + 1 = 0 ''')
 #st.download_button('On the dl', data)
 mycolor = st.color_picker('Pick a color')
 
-print(mycolor)
+st.write(mycolor)
 
 newdata = st.file_uploader('File uploader')
 
 
-print(newdata)
+st.write(print(newdata))
