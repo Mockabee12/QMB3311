@@ -7,4 +7,4 @@ Hello *world!*
 """)
 
 data = pd.read_csv("17_Optimization/credit_data.csv")
-st.bar_chart(data["amount"])
+st.bar_chart(data)
