@@ -19,4 +19,4 @@ st.write(mycolor)
 newdata = st.file_uploader('File uploader')
 
 
-st.write(newdata)
+st.write(newdata.describe())
