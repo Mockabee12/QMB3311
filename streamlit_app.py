@@ -6,5 +6,5 @@ st.write("""
 Hello *world!*
 """)
 
-data = pd.read_csv("../17_Optimization/credit_data.csv")
+data = pd.read_csv("17_Optimization/credit_data.csv")
 st.plotly_chart(data["amount"])
