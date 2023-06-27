@@ -18,5 +18,6 @@ st.write(mycolor)
 
 newdata = st.file_uploader('File uploader')
 
+meh = pd.read_csv(newdata)
 
-st.write(newdata.describe())
+st.write(meh.describe())
