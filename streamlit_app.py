@@ -11,5 +11,5 @@ st.bar_chart(data)
 
 st.latex(r''' e^{i\pi} + 1 = 0 ''')
 
-st.download_button('On the dl', data)
-
+#st.download_button('On the dl', data)
+st.color_picker('Pick a color')
