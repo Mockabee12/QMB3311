@@ -7,4 +7,4 @@ Hello *world!*
 """)
 
 data = pd.read_csv("data.csv")
-st.plotly_chart(data["amount"])
+st.bar_chart(data["default"])
