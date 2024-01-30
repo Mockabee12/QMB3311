@@ -3,7 +3,7 @@
 
 \begin{document}
 
-\texttt{Assignment 3 --- QMB 3311 ---  Spring 2023  --- Due: February 12, 2023}
+\texttt{Assignment 3 --- QMB 3311 ---  Spring 2024  --- Due: February 11, 2024}
 
 \subsection*{Instructions:}
 
@@ -23,9 +23,9 @@ Complete this assignment within the space on your GitHub repo in a folder called
 
 $$\ell(x;\beta_{0},\beta_{1}) = Prob(y=1 | x) = \frac{e^{\beta_{0}+x\beta_{1}}}{1 + e^{\beta_{0}+x\beta_{1}}}$$
 
-The first arguement is $x$ and the last two are $\beta_{0}$ and $\beta_{1}$. For your examples, you may use the fact that $e^{\ln a} = a $ to create examples that evaluate to fractions.
+The first argument is $x$ and the last two are $\beta_{0}$ and $\beta_{1}$. For your examples, you may use the fact that $e^{\ln a} = a $ to create examples that evaluate to fractions.
 
-\part The likelihood function of the logistic regression model is used to estimate coefficients in logistic regression. Logistic regression is used to model binary events, i.e. whether or not an event occurred. For each observation $i$, the observation $y_{i}$ equals 1 if the event occurred and 0 if it did not. Build on the function from above and write a python function \texttt{logit\_like()} that calculates the log-likelihood of observation ($y_i$; $x_i$). That is, it returns the log of the function $\ell(x;\beta_{0},\beta_{1})$ if $y_{i} = 1$ or the log of the function $1-\ell(x;\beta_{0},\beta_{1})$ if $y_{i} = 0$. This function will have four arguements $(y_{i}, x_{i}; \beta_{0},\beta_{1})$ in that order.
+\part The likelihood function of the logistic regression model is used to estimate coefficients in logistic regression. Logistic regression is used to model binary events, i.e. whether or not an event occurred. For each observation $i$, the observation $y_{i}$ equals 1 if the event occurred and 0 if it did not. Build on the function from above and write a python function \texttt{logit\_like()} that calculates the log-likelihood of observation ($y_i$; $x_i$). That is, it returns the log of the function $\ell(x;\beta_{0},\beta_{1})$ if $y_{i} = 1$ or the log of the function $1-\ell(x;\beta_{0},\beta_{1})$ if $y_{i} = 0$. This function will have four arguments $(y_{i}, x_{i}; \beta_{0},\beta_{1})$ in that order.
 
 
 
