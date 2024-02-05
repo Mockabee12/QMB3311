@@ -4,7 +4,7 @@
 
 \begin{document}
 
-\texttt{Assignment 4 --- QMB 3311 ---  Spring 2023  --- Due: February 19, 2023}
+\texttt{Assignment 4 --- QMB 3311 ---  Spring 2023  --- Due: February 18, 2024}
 
 \subsection*{Instructions:}
 
@@ -21,7 +21,7 @@ Don't worry about false alarms: if there are some ``failures'' that are only dif
 
 
 	\begin{parts}
-\part Write a function \texttt{matrix\_inverse(mat\_in)} that replicates teh \texttt{numpy} method \texttt{linalg.inv()} that calculates the inverse of a two-by-two matrix \texttt{mat\_in}.
+\part Write a function \texttt{matrix\_inverse(mat\_in)} that replicates the \texttt{numpy} method \texttt{linalg.inv()} that calculates the inverse of a two-by-two matrix \texttt{mat\_in}.
 
 The inverse of the matrix $A$ denoted $A^{-1}$, is a matrix the same size as $A$ such that $A\cdot A^{-1} = I$, where $I$ is the identity matrix with ones on the diagonal and zeros elsewhere. It can be used to solve the systems of equations $A\cdot x = b$ by multiplying $A^{-1}$ with $b$ to get $x = A^{-1}\cdot b$
 
@@ -43,7 +43,7 @@ $$A = \begin{bmatrix}
       \end{bmatrix} $$
 
 \begin{itemize}
-    \item Your function should take in a two-by-two \texttt{numpy} array and output a \texttt{numpy} array \texttt{mat\_out} with the same number of rows and columns as \texttt{mat\_in}, that is, two-by-two, following the definition of $A^{-1}$ above when the arguement $A$ is passed as \texttt{mat\_in}.
+    \item Your function should take in a two-by-two \texttt{numpy} array and output a \texttt{numpy} array \texttt{mat\_out} with the same number of rows and columns as \texttt{mat\_in}, that is, two-by-two, following the definition of $A^{-1}$ above when the argument $A$ is passed as \texttt{mat\_in}.
 
     \item It should use two nested loops, one for the row of the output and one for the column of output.
 
@@ -56,7 +56,7 @@ $$A = \begin{bmatrix}
     \item Carefully inspect the expressions in $A^{-1}$ and note any potential problems. Your function should return \texttt{None} and print a warning message if the problem occurs. Use this condition to formulate a fourth test case.
 \end{itemize}
 
-\part The likelihood function of the logistic regression model is used to estimate coefficients in logistic regression. Logistic regression is used to model binary events, i.e. whether or not an event occurred. For each observation $i$, the observation $y_{i}$ equals 1 if the event occurred and 0 if it did not. Build on the function \texttt{logit\_like()} from Assignment 3 and write a python function \texttt{logit\_like\_sum()} that calculates the sum of teh log-likelihoond across all observation $(y_{i},x_{i}, i = 1, ... , n$. That is, it returns the sum of either the log of the function $\ell(x;\beta_{0},\beta_{1})$ if $y_{i} = 1$ or the log of the function $(1 - \ell(x;\beta_{0},\beta_{1}))$ if $y_{i} = 0$, over all observation $i = 1,...,n$:
+\part The likelihood function of the logistic regression model is used to estimate coefficients in logistic regression. Logistic regression is used to model binary events, i.e. whether or not an event occurred. For each observation $i$, the observation $y_{i}$ equals 1 if the event occurred and 0 if it did not. Build on the function \texttt{logit\_like()} from Assignment 3 and write a python function \texttt{logit\_like\_sum()} that calculates the sum of the log-likelihood across all observation $(y_{i},x_{i}, i = 1, ... , n$. That is, it returns the sum of either the log of the function $\ell(x;\beta_{0},\beta_{1})$ if $y_{i} = 1$ or the log of the function $(1 - \ell(x;\beta_{0},\beta_{1}))$ if $y_{i} = 0$, over all observation $i = 1,...,n$:
 
 $$L(y,x;\beta_{0},\beta_{1}) = \sum_{i=1}^{n}L_{i}(y_{i},x_{i};\beta_{0},\beta_{1})$$
 
@@ -64,9 +64,9 @@ where $L_{i}(y_{i},x_{i};\beta_{0},\beta_{1})$ refers to the log of either $\ell
 
 $$\ell(x;\beta_{0},\beta_{1}) = Prob(y=1 | x) = \frac{e^{\beta_{0}+x\beta_{1}}}{1 + e^{\beta_{0}+x\beta_{1}}}$$
 
-This function \texttt{logit\_like\_sum()} will have the four arguements $L(y,x;\beta_{0},\beta_{1})$, in that order, where the sample observations $y$ and $x$ are both either lists or \texttt{numpy} arrays.
+This function \texttt{logit\_like\_sum()} will have the four arguments $L(y,x;\beta_{0},\beta_{1})$, in that order, where the sample observations $y$ and $x$ are both either lists or \texttt{numpy} arrays.
 
-\part The \textit{gradient vector} of a multivariate function is a vector with each element equal to the derivatrive of the function with respect to each parameter. It the case of $L(y,x;\beta_{0},\beta_{1})$, element $k$ is
+\part The \textit{gradient vector} of a multivariate function is a vector with each element equal to the derivative of the function with respect to each parameter. It the case of $L(y,x;\beta_{0},\beta_{1})$, element $k$ is
 
 $$\frac{\partial L(y,x;\beta_{0},\beta_{1})}{\partial \beta_{k}} = \sum_{i=1}^{n} \frac{\partial}{\partial \beta_{k}} L_{i}(y_{i},x_{i};\beta_{0},\beta_{1})$$
 
@@ -88,15 +88,15 @@ where $$d_{i} = \begin{cases}
 x_{i}, & \text{for } k = 1
 \end{cases}$$
 
-Define a function \texttt{logit\_like\_grad()} that will have the four arguements in $(y,x;\beta_{0},\beta_{1})$, in that order, and will output a vector of two elements corresponding the the parameters $\beta_{0}$ and $\beta_{1}$. Your manager consulted an expert in econometrics, who provided some test cases in the script \texttt{my\_A4\_functions.py}
+Define a function \texttt{logit\_like\_grad()} that will have the four arguments in $(y,x;\beta_{0},\beta_{1})$, in that order, and will output a vector of two elements corresponding the the parameters $\beta_{0}$ and $\beta_{1}$. Your manager consulted an expert in econometrics, who provided some test cases in the script \texttt{my\_A4\_functions.py}
 
-\part In a previous assignment, you wrote a function \texttt{CESutility\_valid()} that calculated the value of the Constant Elasticity of Substitution utility function $u(x,y;r) = (x^{r}+y^{r})^{\frac{1}{r}}$. for valud values of the parameters $x,y,$ and $r$. Now extend this function to evaluate the consumer's utility for more than two goods:
+\part In a previous assignment, you wrote a function \texttt{CESutility\_valid()} that calculated the value of the Constant Elasticity of Substitution utility function $u(x,y;r) = (x^{r}+y^{r})^{\frac{1}{r}}$. for valid values of the parameters $x,y,$ and $r$. Now extend this function to evaluate the consumer's utility for more than two goods:
 
 $$u(\text{\textbf{x}}, \text{\textbf{a}}; r) = \left(\sum_{i=1}^{n}a_{i}^{1-r}x_{i}^{r}\right)^{\frac{1}{r}},$$
         
 where \textbf{x} is a vector of quantities of goods consumed and \textbf{a} is a vector of weighting parameters for each good and the subscript $i$ indicates the $i$th element of each vector. 
 
-In this function, the first two arguements are \textbf{x} and \textbf{a} and the third is still $r$. Call this function \texttt{CESutility\_multi(x, a, r)} and make sure to include the logic to determine whether the inputs are valid, as in \texttt{CESutility\_valid()}, except all elements of \textbf{x} and \textbf{a} must be nonnegative, and return \texttt{None} otherwise.
+In this function, the first two arguments are \textbf{x} and \textbf{a} and the third is still $r$. Call this function \texttt{CESutility\_multi(x, a, r)} and make sure to include the logic to determine whether the inputs are valid, as in \texttt{CESutility\_valid()}, except all elements of \textbf{x} and \textbf{a} must be nonnegative, and return \texttt{None} otherwise.
         \end{parts}
 
     \end{questions}

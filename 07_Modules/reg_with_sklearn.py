@@ -49,7 +49,7 @@ from sklearn.metrics import mean_squared_error, r2_score # For model performance
 # Find out the current directory.
 os.getcwd()
 # Change to a new directory.
-os.chdir('')
+os.chdir('C:/Users/jo585802/OneDrive - University of Central Florida/Documents/GitHub/QMB3311/07_Modules')
 # Check that the change was successful.
 os.getcwd()
 
