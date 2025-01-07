@@ -1,12 +1,12 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.7.15)  24 MAR 2023 12:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2024.1.16)  16 DEC 2024 17:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **"C:/Users/jo585802/OneDrive - University of Central Florida/Documents/GitHub/
-QMB3311/Assignment_06/Assignment_06.tex"
+QMB3311/Assignment_07/Assignment_07.tex"
 
 (C:/Users/jo585802/OneDrive - University of Central Florida/Documents/GitHub/QM
-B3311/Assignment_06/Assignment_06.tex
+B3311/Assignment_07/Assignment_07.tex
 LaTeX2e <2022-06-01> patch level 5
 L3 programming layer <2022-07-04>
 (C:\Users\jo585802\AppData\Local\Programs\MiKTeX\tex/latex/exam\exam.cls
@@ -179,8 +179,8 @@ pdftex.def
 File: l3backend-pdftex.def 2022-07-01 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count312
 \l__pdf_internal_box=\box54
-) (Assignment_06.aux)
-\openout1 = `Assignment_06.aux'.
+) (Assignment_07.aux)
+\openout1 = `Assignment_07.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
 LaTeX Font Info:    ... okay on input line 5.
@@ -197,41 +197,59 @@ LaTeX Font Info:    ... okay on input line 5.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
 LaTeX Font Info:    ... okay on input line 5.
 
-Overfull \hbox (23.1657pt too wide) in paragraph at lines 11--12
-\OT1/cmr/m/n/10.95 Complete this as-sign-ment within the space on your \OT1/cmr
-/m/it/10.95 pri-vate \OT1/cmr/m/n/10.95 GitHub repo in a folder called \OT1/cmt
-t/m/n/10.95 Assignment[]06\OT1/cmr/m/n/10.95 .
+Overfull \hbox (24.22905pt too wide) in paragraph at lines 11--12
+\OT1/cmr/m/n/10.95 Complete this as-sign-ment within the space on your group's 
+GitHub repo in a folder called \OT1/cmtt/m/n/10.95 Assignment[]07\OT1/cmr/m/n/1
+0.95 .
+ []
+
+
+Overfull \hbox (19.16702pt too wide) in paragraph at lines 20--21
+[]\OT1/cmr/m/n/10.95 Create the fol-low-ing func-tions from your pre-vi-ous as-
+sign-ments into a mod-ule called \OT1/cmtt/m/n/10.95 my[]logit[]A7.py\OT1/cmr/m
+/n/10.95 . 
  []
 
 [1
 
 {C:/Users/jo585802/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+Overfull \hbox (51.88622pt too wide) in paragraph at lines 89--90
+\OT1/cmr/m/n/10.95 tion with \OT1/cmtt/m/n/10.95 statsmodels\OT1/cmr/m/n/10.95 
+. The goal is to match the pa-ram-e-ter es-ti-mates in \OT1/cmtt/m/n/10.95 logi
+t[]model[]fit[]sm.params
+ []
+
 [2]
-This exam contains 7 questions with 0 parts, 0 subparts, and 0 subsubparts.
-(Assignment_06.aux) ) 
+Underfull \hbox (badness 10000) in paragraph at lines 103--105
+
+ []
+
+[3]
+This exam contains 3 questions with 4 parts, 0 subparts, and 0 subsubparts.
+(Assignment_07.aux) ) 
 Here is how much of TeX's memory you used:
- 2312 strings out of 478338
- 35548 string characters out of 2835284
- 358212 words of memory out of 3000000
- 20787 multiletter control sequences out of 15000+600000
- 473791 words of font info for 44 fonts, out of 8000000 for 9000
+ 2307 strings out of 478338
+ 35455 string characters out of 2835284
+ 359212 words of memory out of 3000000
+ 20781 multiletter control sequences out of 15000+600000
+ 474132 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 54i,11n,62p,960b,290s stack positions out of 10000i,1000n,20000p,200000b,80000s
-<C:/Users/jo585802/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/public/amsfonts/cm/cmbx12.pfb><C:/Users/jo585802/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/jo585802/AppData/Local/P
-rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/jo585802/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/j
-o585802/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-<C:/Users/jo585802/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmr8.pfb><C:/Users/jo585802/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmsy10.pfb><C:/Users/jo585802/AppData/Local/Programs/MiKTeX/fonts/ty
-pe1/public/amsfonts/cm/cmsy8.pfb><C:/Users/jo585802/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/jo585802/AppData/Local/P
-rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Assignment_06.pdf (2 pages, 126581 bytes).
+ 54i,11n,62p,844b,447s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ <C:\Users\jo585802\AppData\Local\MiKTeX\fonts/pk/ljfour/j
+knappen/ec/dpi600\tcrm1095.pk><C:/Users/jo585802/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/jo585802/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/jo585802/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/jo5
+85802/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C
+:/Users/jo585802/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
+mr10.pfb><C:/Users/jo585802/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
+sfonts/cm/cmr8.pfb><C:/Users/jo585802/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmsy10.pfb><C:/Users/jo585802/AppData/Local/Programs/MiKTeX
+/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/jo585802/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on Assignment_07.pdf (3 pages, 121160 bytes).
 PDF statistics:
- 59 PDF objects out of 1000 (max. 8388607)
+ 62 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
