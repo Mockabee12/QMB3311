@@ -129,7 +129,6 @@ float('-324')
 float("56.34")
 # 56.34
 
- 
 # but not all strings:
  
 int('a')
@@ -149,7 +148,6 @@ float('b')
 # 'ATATATATAT'
 4 * '-'
 # '----'
-
  
 # and multiplication of a string by zero gives the empty string, 
  
