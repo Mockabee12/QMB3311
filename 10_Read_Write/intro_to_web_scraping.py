@@ -24,7 +24,6 @@ Created on Thu Mar  3 12:20:02 2022
 import os
 import numpy as np
 import pandas as pd
-
 ##################################################
 # Set Working Directory.
 ##################################################
@@ -33,8 +32,8 @@ import pandas as pd
 # Find out the current directory.
 os.getcwd()
 # Change to a new directory.
-git_path = 'C:\\Users\\jo585802\\OneDrive - University of Central Florida\\Documents\\GitHub\\ECO5445\\'
-os.chdir(git_path + '\\13-IntroToWebScraping\\data')
+git_path = 'C:\\Users\\mocka\\OneDrive\\Documents\\GitHub\\QMB3311\\'
+os.chdir(git_path + '\\10_read_write\\new files')
 # Check that the change was successful.
 os.getcwd()
 

@@ -38,8 +38,8 @@ import os # To set working directory
 os.getcwd()
 # Change to a new directory.
 # os.chdir('demo_10_PP_Ch_06_Designing_Modules')
-git_path = ''
-os.chdir(git_path + '10_Read_Write/file_examples')
+git_path = 'C:\\Users\\mocka\\OneDrive\\Documents\GitHub\\QMB3311\\'
+os.chdir(git_path + '10_Read_Write\\file_examples')
 # Check that the change was successful.
 os.getcwd()
 
