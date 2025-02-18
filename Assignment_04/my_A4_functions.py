@@ -4,9 +4,9 @@
 #
 # QMB 3311: Python for Business Analytics
 #
-# Name: 
+# Name: Matthew Mockabee
 #
-# Date:
+# Date: 2/17/2025
 # 
 ##################################################
 #
@@ -23,6 +23,7 @@
 
 # import name_of_module
 
+import numpy as np
 
 ##################################################
 # Function Definitions
@@ -32,6 +33,42 @@
 
 # Exercise 1
 
+def matrix_inverse(mat_in):
+    """
+    Replicate the numpy method linalg.inv() that calculates the inverse of 
+    a two-by-two matrix mat in.
+    The inverse of the matrix A denoted A−1, is a matrix the same size as A 
+    such that A * A−1 = I, where I is the identity matrix with ones on the
+    diagonal and zeros elsewhere. It can be used to solve the systems of 
+    equations A * x = b by multiplying A−1 with b toget x = A−1 * b
+
+    
+    Parameters:
+        mat_in (numpy.ndarray): Input 2x2 matrix
+        
+    Returns:
+        numpy.ndarray: Inverse matrix if it exists
+        None: if matrix is not invertible
+    """
+    if mat_in.shape != (2, 2):
+        print("Warning: Input must be a 2x2 matrix")
+        return None
+        
+    a11, a12 = mat_in[0, 0], mat_in[0, 1]
+    a21, a22 = mat_in[1, 0], mat_in[1, 1]
+    
+    det = a11*a22 - a12*a21
+    
+    if det == 0:
+        print("Error: Determinant cannot be zero")
+        return None
+    else: mat_out = np.zeros((2, 2))
+    mat_out[0, 0] = a22/det
+    mat_out[0, 1] = -a12/det
+    mat_out[1, 0] = -a21/det
+    mat_out[1, 1] = a11/det
+    
+    return mat_out
 
 # Exercise 2
 
